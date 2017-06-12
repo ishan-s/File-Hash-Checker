@@ -14,6 +14,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -26,11 +28,14 @@ public class JashMainController implements Initializable{
 	private AppLog log = new AppLog();
 	
 	@FXML TextField chosenFileTextField;
+	@FXML GridPane rootGridPane;
 	@FXML GridPane inputGridPane;
 	@FXML ComboBox<String> hashComboBox;
 	@FXML Label startLabel;
 	@FXML Label genHashLabel;
+	@FXML Label inpHashLabel;
 	@FXML TextArea genHashTextArea;
+	@FXML TextArea inpHashTextArea;
 	
 	private File selectedFile;
 	
@@ -58,8 +63,10 @@ public class JashMainController implements Initializable{
 		hashComboBox.getItems().addAll(Const.SUPPORTED_HASH_TYPES);
 		hashComboBox.setValue(Const.SUPPORTED_HASH_TYPES[0]);
 		
+		rootGridPane.getStyleClass().add("rootgridpane");
 		startLabel.getStyleClass().add("headerlabel");
 		genHashLabel.getStyleClass().add("headerlabel");
+		inpHashLabel.getStyleClass().add("headerlabel");
 		genHashTextArea.getStyleClass().add("textarea");
 	}
 
@@ -77,6 +84,27 @@ public class JashMainController implements Initializable{
 		}
 		
 		log.info("Selected Hash Type: "+hashType);
+	}
+
+	@FXML public void handleCopyButtonAction() {
+		log.info("Copying generated has to clipboard...");
+		String genHashText = genHashTextArea.getText();
+		if(!(genHashText==null || "".equals(genHashText.trim()))){
+			final Clipboard clipboard = Clipboard.getSystemClipboard();
+			final ClipboardContent content = new ClipboardContent();
+			content.putString(genHashText);
+			
+			clipboard.setContent(content);
+			log.info("Copied "+genHashText+" to clipboard.");
+		}
+		else{
+			log.warning("No content to be copied. Skipping...");
+		}
+			
+	}
+
+	@FXML public void handleCompareButtonAction() {
+		
 	}
 	
 	

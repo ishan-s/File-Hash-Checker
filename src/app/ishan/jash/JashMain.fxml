@@ -8,56 +8,89 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
-	
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ishan.jash.JashMainController"
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ishan.jash.JashMainController">
+<GridPane fx:id="rootGridPane"
 alignment="BASELINE_CENTER"
 hgap="10"
-vgap="10">
-	<Label fx:id="startLabel" 
-		text="Select a file and hash type to proceed"
-		GridPane.rowIndex="1"/>
+vgap="20">
 	<GridPane fx:id="inputGridPane" alignment="CENTER"
 		hgap="10"
 		vgap="10"
-		GridPane.rowIndex="2">
+		GridPane.rowIndex="0"
+		>
+		<Label fx:id="startLabel" 
+		text="Select a file and hash type to proceed"
+		GridPane.rowIndex="0"
+		GridPane.columnSpan="3"/>
 		<Label text="Input File"
 			GridPane.rowIndex="1"
-			GridPane.columnIndex="1"/>
+			GridPane.columnIndex="0"
+			GridPane.halignment="CENTER"
+			/>
 		<TextField fx:id="chosenFileTextField" 
 			GridPane.rowIndex="1"
-			GridPane.columnIndex="2"
+			GridPane.columnIndex="1"
+			minWidth="300"
 			/>
 		<Button fx:id="browseButton" 
 			text="Browse" 
 			onAction="#handleBrowseButtonAction"
 			GridPane.rowIndex="1"
-			GridPane.columnIndex="3" 
+			GridPane.columnIndex="2" 
 			/>
 			
 		<Label text="Hash Type"
 			GridPane.rowIndex="2"
-			GridPane.columnIndex="1"/>
+			GridPane.columnIndex="0"
+			GridPane.halignment="CENTER"
+			/>
 		<ComboBox fx:id="hashComboBox" 
 			GridPane.rowIndex="2"
-			GridPane.columnIndex="2"
+			GridPane.columnIndex="1"
 			/>
+			
 		<Button fx:id="generateButton"
 			text = "Generate"
 			onAction = "#handleGenerateButtonAction"
-			GridPane.rowIndex="2"
-			GridPane.columnIndex="3" />
+			GridPane.rowIndex="3"
+			GridPane.columnIndex="0" />
 	</GridPane>
 	
-	<VBox fx:id="hashFlowPane"
-		GridPane.rowIndex="4"
+	<VBox fx:id="genHashVBox"
+		GridPane.rowIndex="1"
 		GridPane.columnSpan="3"
 		spacing="10"
 		>
 		<Label fx:id="genHashLabel" 
 			text="Generated Hash"
-			/>
+			/>	
 		<TextArea fx:id="genHashTextArea"
 			editable="false"
+			wrapText="true"
+			prefHeight="50"
+			/>
+		<Button fx:id="copyButton"
+			text="Copy"
+			onAction="#handleCopyButtonAction"
+			/>
+	</VBox>
+	
+	<VBox fx:id="inpHashVBox"
+		GridPane.rowIndex="2"
+		GridPane.columnSpan="3"
+		spacing="10">
+		<Label fx:id="inpHashLabel" 
+			text="Input Hash"
+			/>	
+		<TextArea fx:id="inpHashTextArea"
+			wrapText="true"
+			prefHeight="50"
+			/>
+		<Button fx:id="compareButton"
+			text="Compare"
+			onAction="#handleCompareButtonAction"
 			/>
 	</VBox>
 </GridPane>
+</VBox>
