@@ -1,6 +1,6 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 .rootgridpane{
-	-fx-padding: 10;
+	-fx-padding: 10px;
 }
 
 .button{
@@ -12,5 +12,23 @@
 	-fx-font-weight: bold;
 }
 
-.hbox{
+.statustext_default, .statustext_success, .statustext_failure, .statustext_warning, .statustext_info {
+	-fx-font: 12px sans-serif;
+	-fx-font-weight: bold;
+}
+
+.statustext_success{
+	-fx-fill: seagreen;
+}
+
+.statustext_failure{
+	-fx-fill: orangered;
+}
+
+.statustext_warning{
+	-fx-fill: orange;
+}
+
+.statustext_info{
+	-fx-fill: royalblue;
 }

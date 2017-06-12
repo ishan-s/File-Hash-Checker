@@ -8,6 +8,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.text.Text?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ishan.jash.JashMainController">
 <GridPane fx:id="rootGridPane"
@@ -92,5 +94,18 @@ vgap="20">
 			onAction="#handleCompareButtonAction"
 			/>
 	</VBox>
+	
+	<Separator
+		GridPane.rowIndex="3"
+		GridPane.columnSpan="3"
+	/>
+	
+	<Text fx:id="statusText"
+		GridPane.halignment="RIGHT"
+		GridPane.rowIndex="4"
+		GridPane.columnSpan="3"
+	/>
 </GridPane>
+
+
 </VBox>
