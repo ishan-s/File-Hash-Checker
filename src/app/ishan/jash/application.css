@@ -13,7 +13,6 @@
 }
 
 .statustext_default, .statustext_success, .statustext_failure, .statustext_warning, .statustext_info {
-	-fx-font: 12px sans-serif;
 	-fx-font-weight: bold;
 }
 

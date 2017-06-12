@@ -30,7 +30,8 @@ public class Main extends Application {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/app/ishan/jash/JashMain.fxml"));
 			
 			VBox root = (VBox) fxmlLoader.load();
-			addMenuBar(root);
+			//TODO: Implement the MenuBar
+			//addMenuBar(root);
 			
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
